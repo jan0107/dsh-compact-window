@@ -1,0 +1,3 @@
+- insert:
+    - id: compact-window
+      name: 'dsh-compact-window'
