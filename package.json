@@ -1,0 +1,65 @@
+{
+  "name": "dsh-compact-window",
+  "version": "1.0.0",
+  "description": "Small-window mode for the DSH desktop app: turn the main window into a 425px-wide, always-on-top sticky window. 把 DSH 桌面窗口切成置顶的便签式小窗。",
+  "type": "module",
+  "license": "MIT",
+  "author": "jan0107",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jan0107/dsh-compact-window.git"
+  },
+  "homepage": "https://github.com/jan0107/dsh-compact-window#readme",
+  "bugs": {
+    "url": "https://github.com/jan0107/dsh-compact-window/issues"
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "window",
+    "compact",
+    "always-on-top",
+    "sticky"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "icon": "./icon.svg",
+  "files": [
+    "index.js",
+    "client.js",
+    "window.ps1",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}
