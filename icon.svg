@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Small Window Mode">
+  <defs>
+    <linearGradient id="cwGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f7ef0"/>
+      <stop offset="1" stop-color="#7a5cf0"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#cwGradient)"/>
+  <rect x="12" y="14" width="40" height="30" rx="5" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.9"/>
+  <rect x="30" y="30" width="20" height="16" rx="3" fill="#ffffff" opacity="0.95"/>
+</svg>
