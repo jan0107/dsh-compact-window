@@ -1,8 +1,8 @@
 # dsh-compact-window
 
-把 DSH 桌面窗口变成置顶的便签式小窗：只占 425px 宽，随时可以收成一个浮层，边栏变成抽屉，不挤压聊天区。
+把 **DSH NEXT** 桌面窗口变成置顶的便签式小窗：只占 425px 宽，随时可以收成一个浮层，边栏变成抽屉，不挤压聊天区。
 
-Small-window mode for the DSH desktop app: turn the main window into a 425px-wide, always-on-top sticky window.
+Small-window mode for the **DSH NEXT** desktop app (Windows): turn the main window into a 425px-wide, always-on-top sticky window. The other desktop client, `dsh desktop`, is not supported.
 
 ---
 
@@ -20,8 +20,9 @@ Small-window mode for the DSH desktop app: turn the main window into a 425px-wid
 | 要求 | 说明 |
 |---|---|
 | **Windows** | 窗口操作走 Win32（user32），macOS/Linux 上插件会让按钮自动隐藏 |
-| **DSH 桌面端** | 需要能操作原生窗口的 DSH NEXT 桌面应用；浏览器里的 Web GUI 只是网页，没有窗口可调 |
-| **koffi** | 桌面端自带（`resources/app.asar.unpacked/node_modules/koffi`）；找不到时会降级到 PowerShell，无拖动动效 |
+| **DSH NEXT 桌面端** | **只支持 DSH NEXT**。需要能操作原生窗口的桌面宿主；浏览器里的 Web GUI 只是网页，没有窗口可调 |
+| **其他桌面客户端** | 另一个桌面端 **`dsh desktop` 未适配，预计不可用**；找不到窗口时插件只会隐藏按钮，不会误操作 |
+| **koffi** | DSH NEXT 自带（`resources/app.asar.unpacked/node_modules/koffi`）；找不到时会降级到 PowerShell，无拖动动效 |
 | **PowerShell** | 仅用于启动时发现一次窗口句柄；之后全部在 Node 内完成 |
 
 已测试版本：DSH NEXT `0.2.1-rc.2`（profile `desktop`）。

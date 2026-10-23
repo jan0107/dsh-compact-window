@@ -1,7 +1,7 @@
 {
   "name": "dsh-compact-window",
   "version": "1.0.0",
-  "description": "Small-window mode for the DSH desktop app: turn the main window into a 425px-wide, always-on-top sticky window. 把 DSH 桌面窗口切成置顶的便签式小窗。",
+  "description": "Small-window mode for the DSH NEXT desktop app (Windows): a 425px-wide, always-on-top sticky window. 把 DSH NEXT 桌面窗口切成置顶的便签式小窗。",
   "type": "module",
   "license": "MIT",
   "author": "jan0107",
