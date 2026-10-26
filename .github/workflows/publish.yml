@@ -1,0 +1,52 @@
+name: Publish to npm
+
+# Trusted publishing (OIDC): no long-lived token and no OTP.
+# Every run lands in npm's stage queue; a maintainer approves it on npmjs.com.
+#
+# Release flow:
+#   1. bump "version" in package.json and commit
+#   2. git tag vX.Y.Z && git push origin vX.Y.Z
+#   3. this workflow runs `npm stage publish`
+#   4. approve it at https://www.npmjs.com/package/dsh-compact-window
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # required for OIDC trusted publishing
+
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+
+      # `npm stage publish` needs npm >= 11.15.
+      - name: Use the latest npm
+        run: npm install -g npm@latest
+
+      - name: Check the tag matches package.json
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          if [ "$PKG_VERSION" != "$TAG_VERSION" ]; then
+            echo "::error::tag ${GITHUB_REF_NAME} does not match package.json version ${PKG_VERSION}"
+            exit 1
+          fi
+          echo "tag and package.json agree on ${PKG_VERSION}"
+
+      - name: Stage the release
+        run: npm stage publish
+
+      - name: Where to approve
+        run: echo "Staged. Approve it at https://www.npmjs.com/package/dsh-compact-window"
